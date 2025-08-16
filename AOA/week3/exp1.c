@@ -16,16 +16,16 @@ void swap(struct Student* a, struct Student* b) {
 void modifiedBubbleSort(struct Student arr[], int n) {
     int i, j;
     int swapped;
-    for (i = 0; i < n - 1; i++) {
+    for (i = 0; i < n - 1; i++) { // i = no. of passes, which are max. 'n-1'
         swapped = 0;
-        for (j = 0; j < n - i - 1; j++) {
+        for (j = 0; j < n - i - 1; j++) { // j = no. of swapping done, which is 'n-2'
             if (arr[j].marks < arr[j + 1].marks) {
                 swap(&arr[j], &arr[j + 1]);
-                swapped = 1;
+                swapped = 1; // if elements are swapped in some Mth pass, then the code will run even       if the list is sorted! hence swapped = 1 gives that the array is sorted
             }
         }
         if (swapped == 0)
-            break;
+            break; // if didn't swapped, break the swapping loop and get to outer loop of passes
     }
 }
 
@@ -47,7 +47,7 @@ void selectionSort(struct Student arr[], int n) {
     int i, j, max_idx;
     for (i = 0; i < n - 1; i++) {
         max_idx = i;
-        for (j = i + 1; j < n; j++) {
+        for (j = i + 1; j < n; j++) { // for finding max elem(here) and replacing it with the last elem, so as to get the left part of array as 'unsorted' and right part as 'sorted'
             if (arr[j].marks > arr[max_idx].marks) {
                 max_idx = j;
             }
