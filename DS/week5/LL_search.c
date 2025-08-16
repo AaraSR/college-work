@@ -39,7 +39,6 @@ int searchNodeIt(struct Node* head, int element) {
 }
 
 int main(void) {
-    
 
     return 0;
 }
