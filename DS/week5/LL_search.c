@@ -42,7 +42,7 @@ int searchNodeIt(struct Node* head, int element) {
     
     while (head != NULL) {
 
-        // if ()                                        // do something here!!!
+        // if ()                                                // do something here!!!
         printf("%d ", head->data);
         head = head->next;
     }
