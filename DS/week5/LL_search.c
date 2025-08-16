@@ -35,7 +35,19 @@ int searchNodeR(struct Node* head, int element) {
 
 // searching func using Iteration
 int searchNodeIt(struct Node* head, int element) {
+    if (head == NULL) {
+        printf("Linked List is empty!");
+        return 0;
+    }
     
+    while (head != NULL) {
+
+        // if ()                                        // do something here!!!
+        printf("%d ", head->data);
+        head = head->next;
+    }
+
+    printf("\n");
 }
 
 int main(void) {
