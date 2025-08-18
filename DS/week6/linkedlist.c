@@ -133,3 +133,12 @@ struct Node* insertAtPos(struct Node *head, int pos, int new_data) {
 
 // // // // DELETION FUNCTIONS
 
+
+
+
+// // // // main() function
+
+int main(void) {
+
+    return 0;
+}
