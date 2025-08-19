@@ -53,15 +53,16 @@ void addNode(struct Node** head_ref, int new_data) {
 void display(struct Node* head) {
     
     if (head == NULL) {
-        printf("Linked List is empty!");
+        printf("Linked List is empty!\n");
+        return;
     }
     
+    printf("HEAD -> ");
     while (head != NULL) {
-        printf("%d ", head->data);
+        printf("%d -> ", head->data);
         head = head->next;
     }
-
-    printf("\n");
+    printf("NULL\n");
 }
 
 // // // // INSERTION FUNCTIONS
@@ -133,12 +134,89 @@ struct Node* insertAtPos(struct Node *head, int pos, int new_data) {
 
 // // // // DELETION FUNCTIONS
 
+// deleting head node
+struct Node* deleteHead(struct Node* head) {
+    
+    // if list is empty
+    if (head == NULL) {
+        return NULL;
+    }
 
+    // store HEAD in TEMP var
+    struct Node* temp = head;
 
+    // move HEAT ptr to NEXT node OR append the HEAD ptr to NEXT node ka DATA
+    head = head->next;
+
+    // free the memory of old head (which is TEMP)
+    free(temp);
+
+    return head;
+}
+
+// delete last node
+struct Node* deleteLastNode(struct Node* head) {
+
+    // check if empty
+    if (head == NULL) {
+        return NULL;
+    }
+
+    // if HEAD has only one node, delete that
+    if (head->next == NULL) {
+        free(head);
+        return NULL;
+    }
+
+    // find penultimate or second last node
+    struct Node* second_last = head;
+    while(second_last->next->next != NULL) { // SecondLast's NEXT(the last one)'s NEXT will be NULL 
+        second_last = second_last->next;
+    }
+
+    // first delete the last node
+    free(second_last->next);
+
+    // then update SecondLast's NEXT to be NULL (bcoz it will be last now)
+    second_last->next = NULL;
+
+    return head;
+}
+
+struct Node* deleteNode(struct Node* head, int pos) {
+    struct Node* temp = head;
+    struct Node* prev = NULL;
+
+    // if LL is empty
+    if (temp == NULL) {return head; }
+
+    // if pos = 1 ie. HEAD
+    if (pos == 1) {
+        deleteHead(head);
+    }
+
+    // traverse till pos
+    for (int i = 1; i < pos && temp != NULL; i++) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // pos is found when temp != NULL, so delete that node
+    if (temp != NULL) {
+        prev->next = temp->next;
+        free(temp);
+    } else {
+        printf("Data not present\n");
+    }
+
+    return head;
+}
 
 // // // // main() function
 
 int main(void) {
+    struct Node* head = NULL;
 
+    
     return 0;
 }
