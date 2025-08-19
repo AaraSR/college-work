@@ -6,7 +6,7 @@ int queue[size];
 int front = -1, rear = -1;
 
 void enqueue(int data) {
-    if ((rear + 1) % size == front) {
+    if ( (rear + 1) % size == front ) {
     printf("Queue is full!\n");
     return;
     }
@@ -15,8 +15,9 @@ void enqueue(int data) {
     front = rear = 0;
     }
     else {
-    rear = (rear + 1) % size;
+    rear = (rear + 1) % size; // meaning if rear = size - 1, put rear = (rear + 1) % size = 0
     }
+
     queue[rear] = data;
 }
 
@@ -63,7 +64,7 @@ int main() {
             break;
             
             case 3:
-            printf("Exiting program.\n");
+            printf("Exiting program...\n");
             return 0;
             
             default:
