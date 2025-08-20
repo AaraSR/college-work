@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define size 5
+#define size 5  // can also use: const int size = 5
 
 int queue[size];
 int front = -1, rear = -1;
@@ -37,7 +37,7 @@ void dequeue() {
 
 void display() {
     printf("\nQueue: ");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {   // printing the queue from 1st index
         printf("%d ", queue[i]);
         }
     printf("\n");
