@@ -37,9 +37,16 @@ void dequeue() {
 
 void display() {
     printf("\nQueue: ");
-    for (int i = 0; i < size; i++) {   // printing the queue from 1st index
+    int i = front;
+    while (i != rear) {                   // printing the queue from FRONT to REAR
         printf("%d ", queue[i]);
-        }
+        i = (i + 1) % size;
+    }
+    printf("%d", queue[rear]);
+
+    // for (int i = 0; i < size; i++) {   // printing the queue from 1st index
+    //     printf("%d ", queue[i]);
+    //     }
     printf("\n");
 }
 
