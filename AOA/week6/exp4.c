@@ -59,4 +59,3 @@ int main () {
     printf("Max Profit: %.2f\n", maxProfit);
     return 0;
 }
->>>>>>> main
