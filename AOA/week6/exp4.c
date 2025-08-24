@@ -31,7 +31,7 @@ int main () {
     for (int i = 0; i < size; i++) {
         pbyw[i] = profits[i] / weights[i];
         pbyw_copy[i] = pbyw[i];
-        printf("%.1f ", pbyw[i]);
+        printf("%.1f ", pbyw[i]); 
     }
     printf("\n");
 
