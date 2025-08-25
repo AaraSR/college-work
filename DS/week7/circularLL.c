@@ -45,4 +45,5 @@ struct Node* insertAtPos(struct Node *last, int data, int pos) {
     }
 
     // traverse to reach pos
+    
 }
