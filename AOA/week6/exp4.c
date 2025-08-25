@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // hello world
 
 #include <stdio.h>
@@ -11,6 +12,8 @@ int main (void) {
     return 0;
 }
 =======
+=======
+>>>>>>> main
 #include <stdio.h>
 #include <math.h>
 
@@ -72,4 +75,7 @@ int main () {
     printf("Max Profit: %.2f\n", maxProfit);
     return 0;
 }
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
