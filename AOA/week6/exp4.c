@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
-#define size 5
+#define size 10
 
 void insertionSort(float arr[]) {
     int i, j;
-    float temp2;   // FIX: must be float
+    float temp2;
     for (i = 1; i < size; i++) {
         temp2 = arr[i];
         j = i - 1;
@@ -18,16 +18,41 @@ void insertionSort(float arr[]) {
 }
 
 int main () {
+    int n;
     int maxWeight = 10;
-    float maxProfit = 0.0;   // FIX: must be float
-    float pbyw[size];
-    float pbyw_copy[size];
+    float maxProfit = 0.0;
+    float pbyw[size], pbyw_copy[size];
+    
+    // int weights[size] = {3, 8, 2, 5, 1};
+    // float profits[size] = {10.0, 15.0, 10.0, 12.0, 8.0};
 
-    int objects[size] = {1, 2, 3, 4, 5};
-    int weights[size] = {3, 8, 2, 5, 1};
-    float profits[size] = {10.0, 15.0, 10.0, 12.0, 8.0};
+    int objects[size] = {};
+    printf("Enter the number of elements of objects(max. 10): ");
+    scanf("%d", n);
+    printf("\nObjects: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d", i+1);
+        objects[i];
+    }
+    printf("\n");
 
-    // calculate profit/weight ratio
+    // weights[] array defining
+    int weights[] = {};
+    printf("Weights: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &weights[i]);
+    }
+    printf("\n");
+
+    // profits[] array defining
+    float profits[] = {};
+    printf("Profits: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &profits[i]);
+    }
+    printf("\n");
+
+    // calculating profit-by-weight
     for (int i = 0; i < size; i++) {
         pbyw[i] = profits[i] / weights[i];
         pbyw_copy[i] = pbyw[i];
@@ -35,7 +60,7 @@ int main () {
     }
     printf("\n");
 
-    insertionSort(pbyw_copy);  // sort ratios descending
+    insertionSort(pbyw_copy);
 
     int i = 0;
     while (maxWeight > 0 && i < size) {
@@ -45,11 +70,11 @@ int main () {
         }
 
         if (weights[k] <= maxWeight) {
-            // take full item
+            // taking the whole weight (if possible)
             maxWeight -= weights[k];
             maxProfit += profits[k];
         } else {
-            // take fraction
+            // taking the frac of whole weight
             maxProfit += pbyw[k] * maxWeight;
             maxWeight = 0;
         }
