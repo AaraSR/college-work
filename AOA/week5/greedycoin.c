@@ -24,18 +24,31 @@ void greedyCoinChange(int coins[], int numCoins, int TargetAmt) {
             printf("%d ", coins[i]);
             balanceAmt -= coins[i];
         }
+
+        
     }
 
     (balanceAmt == 0) ? 
-    printf("\nAll coins used!\n") : 
+    printf("\nNo Balance left!\n") : 
     printf("\nExact change not possible, Remaining Amount: %d \n", balanceAmt);
 }
 
 int main(void) {
-    int coins[] = {5, 10, 25};
-    int numCoins = sizeof(coins) / sizeof(coins[0]);
-    int TargetAmt = 47; 
+    int coins[10] = {};
+    int numCoins;
+    int TargetAmt; 
 
+    printf("GREEDY COIN CHANGE\nEnter the Target Amount: ");
+    scanf("%d", &TargetAmt);
+
+    printf("\nEnter the number of coins: ");
+    scanf("%d", &numCoins);
+
+    printf("\nEnter the coins: ");
+    for (int i = 0; i < numCoins; i++) {
+        scanf("%d", &coins[i]);
+    }
+    
     greedyCoinChange(coins, numCoins, TargetAmt);
 
     return 0;

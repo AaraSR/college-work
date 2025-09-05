@@ -28,32 +28,31 @@ int main () {
 
     int objects[size] = {};
     printf("Enter the number of elements of objects(max. 10): ");
-    scanf("%d", n);
+    scanf("%d", &n);
     printf("\nObjects: ");
     for (int i = 0; i < n; i++) {
-        printf("%d", i+1);
+        printf("%d ", i+1);
         objects[i];
     }
     printf("\n");
 
     // weights[] array defining
-    int weights[] = {};
+    float weights[n];
     printf("Weights: ");
     for (int i = 0; i < n; i++) {
-        scanf("%d", &weights[i]);
+        scanf("%f", &weights[i]);
     }
-    printf("\n");
 
     // profits[] array defining
-    float profits[] = {};
+    float profits[n]; 
     printf("Profits: ");
     for (int i = 0; i < n; i++) {
-        scanf("%d", &profits[i]);
-    }
-    printf("\n");
+        scanf("%f", &profits[i]);
+    }    
 
     // calculating profit-by-weight
-    for (int i = 0; i < size; i++) {
+    printf("Profit by Weight: ");
+    for (int i = 0; i < n; i++) {
         pbyw[i] = profits[i] / weights[i];
         pbyw_copy[i] = pbyw[i];
         printf("%.1f ", pbyw[i]);
@@ -65,7 +64,7 @@ int main () {
     int i = 0;
     while (maxWeight > 0 && i < size) {
         int k = 0;
-        while (pbyw_copy[i] != pbyw[k] && k < size - 1) {
+        while (pbyw_copy[i] != pbyw[k] && k < n) {
             k++;
         }
 
@@ -74,7 +73,7 @@ int main () {
             maxWeight -= weights[k];
             maxProfit += profits[k];
         } else {
-            // taking the frac of whole weight
+            // else take the frac of whole weight
             maxProfit += pbyw[k] * maxWeight;
             maxWeight = 0;
         }

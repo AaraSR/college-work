@@ -6,17 +6,30 @@ struct Node {
     struct Node* next;
 };
 
-struct Node* createNode(int new_data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-
-    newNode->data = new_data;
-    newNode->next = NULL;
-
-    return newNode;
+// Check if stack is empty
+int isEmpty(struct Node* head) {
+    return head == NULL;
 }
 
+// Push an element onto stack
+void push(struct Node** head, int new_data) {
+    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+    new_node->data = new_data;
+    new_node->next = *head;
+    *head = new_node;
+}
+
+void pop(struct Node** head) {
+
+}
+
+
+
+
+// // // // main() func
 int main(void) {
-    struct Node* top = createNode(10);
+    struct Node* head = createNode(10);
+    push(head, 20);
 
 
     return 0;
