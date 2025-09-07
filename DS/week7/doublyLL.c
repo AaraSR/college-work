@@ -11,8 +11,8 @@ struct Node {
 struct Node* createNode(int new_data, struct Node* head) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
 
-    newNode->prev = NULL;
     newNode->data = new_data;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
