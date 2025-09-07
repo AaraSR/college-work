@@ -215,6 +215,14 @@ struct Node* deleteNode(struct Node* head, int pos) {
 int main(void) {
     struct Node* head = NULL;
 
+    head = addNode(head, 10);
+    head = addNode(head, 20);
+    head = addNode(head, 30);
     
+    display(head);
+
+    insertAtPos(head, 3, 15);
+    display(head);
+
     return 0;
 }
