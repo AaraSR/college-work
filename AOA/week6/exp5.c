@@ -3,6 +3,7 @@
 
 #define size 10
 
+// insertionSort used because of less no. of input
 void insertionSort(float arr[]) {
     int i, j;
     float temp2;
@@ -17,14 +18,19 @@ void insertionSort(float arr[]) {
     }
 }
 
-int main () {
+int main (void) {
     int n;
-    int maxWeight = 10;
     float maxProfit = 0.0;
     float pbyw[size], pbyw_copy[size];
     
+    // int maxWeight = 10;
     // int weights[size] = {3, 8, 2, 5, 1};
     // float profits[size] = {10.0, 15.0, 10.0, 12.0, 8.0};
+    // ans: 37.60
+
+    int maxWeight;
+    printf("Enter the maximum weight capacity of Knapsack: ");
+    scanf("%d", &maxWeight);
 
     int objects[size] = {};
     printf("Enter the number of elements of objects(max. 10): ");
