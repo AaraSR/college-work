@@ -1,91 +1,63 @@
 #include <stdio.h>
-#include <math.h>
 
-#define size 10
-
-// insertionSort used because of less no. of input
-void insertionSort(float arr[]) {
+void sortItemsByRatio(float ratio[], float p[], float w[], int size) {    // sorting using InsertionSort due to less no. of inputs
     int i, j;
-    float temp2;
+    float temp2, tempp, tempw;
     for (i = 1; i < size; i++) {
-        temp2 = arr[i];
+        temp2 = ratio[i];
+        tempp = p[i];
+        tempw = w[i];
         j = i - 1;
-        while (j >= 0 && arr[j] < temp2) {
-            arr[j + 1] = arr[j];
+        while (j >= 0 && ratio[j] < temp2) {  // descending order
+            ratio[j + 1] = ratio[j];
+            p[j + 1] = p[j];
+            w[j + 1] = w[j];
             j = j - 1;
         }
-        arr[j + 1] = temp2;
+        ratio[j + 1] = temp2;
+        p[j + 1] = tempp;
+        w[j + 1] = tempw;
     }
 }
 
-int main (void) {
-    int n;
-    float maxProfit = 0.0;
-    float pbyw[size], pbyw_copy[size];
-    
-    // int maxWeight = 10;
-    // int weights[size] = {3, 8, 2, 5, 1};
-    // float profits[size] = {10.0, 15.0, 10.0, 12.0, 8.0};
-    // ans: 37.60
+int main() {
+    int capacity, n;
+    printf("Enter maximum capacity of knapsack: ");
+    scanf("%d", &capacity);
 
-    int maxWeight;
-    printf("Enter the maximum weight capacity of Knapsack: ");
-    scanf("%d", &maxWeight);
-
-    int objects[size] = {};
-    printf("Enter the number of elements of objects(max. 10): ");
+    printf("Enter number of items: ");
     scanf("%d", &n);
-    printf("\nObjects: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", i+1);
-        objects[i];
-    }
-    printf("\n");
 
-    // weights[] array defining
-    float weights[n];
-    printf("Weights: ");
+    float p[n], w[n], ratio[n];
+
+    printf("Enter profits of items:\n");
     for (int i = 0; i < n; i++) {
-        scanf("%f", &weights[i]);
+        scanf("%f", &p[i]);
     }
 
-    // profits[] array defining
-    float profits[n]; 
-    printf("Profits: ");
+    printf("Enter weights of items:\n");
     for (int i = 0; i < n; i++) {
-        scanf("%f", &profits[i]);
-    }    
-
-    // calculating profit-by-weight
-    printf("Profit by Weight: ");
-    for (int i = 0; i < n; i++) {
-        pbyw[i] = profits[i] / weights[i];
-        pbyw_copy[i] = pbyw[i];
-        printf("%.1f ", pbyw[i]);
+        scanf("%f", &w[i]);
+        ratio[i] = p[i] / w[i];
     }
-    printf("\n");
 
-    insertionSort(pbyw_copy);
+    sortItemsByRatio(ratio, p, w, n);
 
-    int i = 0;
-    while (maxWeight > 0 && i < size) {
-        int k = 0;
-        while (pbyw_copy[i] != pbyw[k] && k < n) {
-            k++;
-        }
+    float total_p = 0.0;
+    float current_w = 0.0;
 
-        if (weights[k] <= maxWeight) {
-            // taking the whole weight (if possible)
-            maxWeight -= weights[k];
-            maxProfit += profits[k];
+    for (int i = 0; i < n; i++) {
+        if (current_w + w[i] <= capacity) {
+            current_w += w[i];
+            total_p += p[i];
         } else {
-            // else take the frac of whole weight
-            maxProfit += pbyw[k] * maxWeight;
-            maxWeight = 0;
+            float remain = capacity - current_w;
+            total_p += ratio[i] * remain;
+            break;
         }
-        i++;
     }
 
-    printf("Max Profit: %.2f\n", maxProfit);
+    printf("Total profit obtained: %.2f\n", total_p);
+
     return 0;
 }
