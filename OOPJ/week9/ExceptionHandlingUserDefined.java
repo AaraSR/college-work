@@ -30,5 +30,6 @@ public class ExceptionHandlingUserDefined
 		catch (InvalidInputExp e) {
 			System.out.println(e);
 		}
+		scn.close();
 	}
 }
