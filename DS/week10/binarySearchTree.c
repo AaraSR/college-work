@@ -1,3 +1,5 @@
+// write a whole new code to create a BST
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +15,7 @@ struct node* create() {
     printf("\n\nPress 0 to exit\nPress 1 to create a new node of Binary Tree\nEnter your choice: ");
     scanf("%d", &choice);
 
-    if (choice == 0) {return 0;}
+    if (choice == 0) {return 0; }
     else {
         printf("Enter the data: ");
         scanf("%d", &data);
@@ -28,13 +30,4 @@ struct node* create() {
 
         return temp;
     }
-}
-
-int main(void) {
-    struct node* root;
-
-    printf("BINARY TREE\n");
-    root = create();
-
-    return 0;
 }
