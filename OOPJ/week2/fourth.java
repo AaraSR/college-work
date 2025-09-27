@@ -1,5 +1,3 @@
-import java.util.*;
-
 class fourth {
 	public static void main(String[] args) {
 		String name = args[0];

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class second {
 	public static void main(String[] args) {
 		int rollno = 10877;

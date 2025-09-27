@@ -1,5 +1,3 @@
-import java.util.*;
-
 class ExcHandlingExp
 {
 	public static void main(String args[]) {

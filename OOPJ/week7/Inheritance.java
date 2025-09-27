@@ -81,5 +81,6 @@ class Inheritance
 		// b.print();
 		
 		Car c = new Car(101, 10000, "Black", "B10");
+		System.out.println(c);
 	}
 }

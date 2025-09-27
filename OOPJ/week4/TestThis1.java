@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Student{
 	int rollno;
 	String name;

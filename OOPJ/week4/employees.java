@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Employee {
 	int e_id;
 	String name;

@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 class third {
 	public static void main(String[] args) {
@@ -20,5 +20,6 @@ class third {
 		
 		System.out.printf("%.2f marks scored by %s who's roll no. is %d\n", marks, name, rollno);
 		
+		s1.close();
 		}
 }
